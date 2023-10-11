@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+     <script>
+       function onSubmit(token) {
+         document.getElementById("login-form").submit();
+       }
+     </script>
 </head>
 <body>
     <header class="site-header">
@@ -30,9 +36,10 @@
         </div>
         
         <div class="btn-group">
-            <button type="submit" class="login-btn">Log In</button>
             <button type="reset" class="clear-btn" >Clear</button>
+            <button class="g-recaptcha" data-sitekey="6LfyCJMoAAAAAFAmX9fuJoxe16oj4QB_E-XT2PKW" data-callback="onSubmit">Log In</button>
             <a href="/signup"><button type="button" class="signup-btn">Sign Up</button> </a>
+
 
         </div>
     </form>
