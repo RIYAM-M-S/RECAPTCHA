@@ -13,18 +13,16 @@
      </script>
 </head>
 <body>
-    <header class="site-header">
+    <header class "site-header">
         <h1>Welcome to the SWE 314 Login Page</h1>
     </header>
-    
-    
 
 <div class="login-container">
     <div class="error-message" hidden>
        Error: password or username is incorrect
     </div>
     <h2>🔒Login</h2>
-    <form action="/login" method="POST">
+    <form action="/login" method="POST" id="login-form">
         <div class="input-group">
             <label for="username">Username:</label>
             <input type="text" name="username" id="username" required>
@@ -37,24 +35,24 @@
         
         <div class="btn-group">
             <button type="reset" class="clear-btn" >Clear</button>
-            <a href="/signup"><button type="button" class="signup-btn">Sign Up</button> </a>
+            <a href="/signup"><button type="button" class="signup-btn">Sign Up</button></a>
         </div>
-        <button  type="submit" class="g-recaptcha" data-sitekey="6LfyCJMoAAAAAFAmX9fuJoxe16oj4QB_E-XT2PKW" data-callback="onSubmit">Log In</button>
 
-    </form>            
+        <!-- The reCAPTCHA widget is rendered as a button -->
+        <div class="g-recaptcha" data-sitekey="6LfyCJMoAAAAAFAmX9fuJoxe16oj4QB_E-XT2PKW" data-callback="onSubmit"></div>
 
+        <!-- The actual login button -->
+        <button type="submit" class="login-btn">Log In</button>
+    </form>
 </div>
 
 <script>
-  
- // get the error from the url
+    // Get the error from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const error = urlParams.get('error');
-    if(error){
+    if (error) {
         document.querySelector('.error-message').style.display = 'block';
     }
-
-
 </script>
 
 </body>
