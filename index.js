@@ -36,6 +36,16 @@ app.post('/login', (req, res) => {
   )
 });
 
+app.post('/login', (req, res) => {
+ 
+      res.redirect("/");
+});
+
+app.post('submitSignup', (req, res) => {
+ 
+  res.redirect("/");
+});
+
 app.post('/submitSignup', (req, res) => {
   const { username, password } = req.body;
   const hashedPassword2 = bcrypt.hashSync(password, salt);
