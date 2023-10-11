@@ -63,16 +63,13 @@ app.listen(port, () => {
 
 
 const fetch = require('node-fetch');
-
-// Your reCAPTCHA secret key
 const recaptchaSecretKey = '6LfyCJMoAAAAAJKO01Y8KZZbIWgyECENVqnTyHRn';
 
-// Define an endpoint for handling the reCAPTCHA verification
+// endpoint for handling the reCAPTCHA verification
 app.post('/verify-recaptcha', async (req, res) => {
-  // Get the reCAPTCHA response token from the request body
   const recaptchaResponse = req.body['g-recaptcha-response'];
 
-  // Make a POST request to Google's reCAPTCHA verification endpoint
+  //POST request to Google's reCAPTCHA verification endpoint
   const verificationURL = 'https://www.google.com/recaptcha/api/siteverify';
   const params = new URLSearchParams({
     secret: recaptchaSecretKey,
@@ -90,12 +87,10 @@ app.post('/verify-recaptcha', async (req, res) => {
   const data = await response.json();
 
   if (data.success) {
-    // reCAPTCHA verification succeeded, you can proceed with form processing
-    // Insert your form processing logic here
-
+    res.json(result);
     res.status(200).json({ message: 'reCAPTCHA verification successful' });
   } else {
-    // reCAPTCHA verification failed, prompt the user to try again
+    res.redirect('/?error=true');
     res.status(400).json({ error: 'reCAPTCHA verification failed' });
   }
 });
