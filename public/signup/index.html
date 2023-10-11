@@ -34,6 +34,17 @@
             <input type="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="password" name="password" required>
         </div>
 
+        
+        <div class="password-requirements">
+            Password must meet the following requirements:
+            <ul>
+                <li>At least 8 characters long</li>
+                <li>Contain at least one uppercase letter</li>
+                <li>Contain at least one lowercase letter</li>
+                <li>Contain at least one digit </li>
+            </ul>
+        </div>
+
         <div class="g-recaptcha" data-sitekey="6LfyCJMoAAAAAFAmX9fuJoxe16oj4QB_E-XT2PKW" data-callback="onSubmit"></div>
 
 
