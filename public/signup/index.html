@@ -45,20 +45,19 @@
             </ul>
         </div>
 
-        <div class="g-recaptcha" data-sitekey="6LfyCJMoAAAAAFAmX9fuJoxe16oj4QB_E-XT2PKW" data-callback="onSubmit"></div>
-
-
         <div class="btn-group">
             <button type="reset" class="clear-btn">Clear</button>
-        </div>
-        
-        <button type="submit" class="signup-btn">Sign Up</button>
+            <button type="submit" class="signup-btn">Sign Up</button>
 
+        </div>
+
+        <div class="g-recaptcha" data-sitekey="6LfyCJMoAAAAAFAmX9fuJoxe16oj4QB_E-XT2PKW" data-callback="onSubmit"></div>
 
     </form>
 </div>
 
 <script>
+    
     // Get the error from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const error = url
